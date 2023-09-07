@@ -10,7 +10,7 @@ $current_day_of_week = date('l');
 $current_time = date("Y-m-d H:i:s", time());
 
 // Set the GitHub URL of the file being run
-$source_file_url = 'https://github.com/path_to_the_current_file_running_in_your_repo.php';
+$source_file_url = 'https://github.com/success2202/success/blob/main/api.php';
 
 // Get the GitHub URL of the full source code
 $source_repo_url = 'https://github.com/success2202/success.git';
