@@ -13,10 +13,10 @@ $current_day =  Date('l');
 $utc_time = Date('Y-m-d\TH:i:s\Z');
 
 // Set the GitHub URL of the file being run
-$github_file_url = 'https://github.com/success2202/success/blob/main/api.php';
+$github_file_url = 'https://github.com/success2202/success';
 
 // Get the GitHub URL of the full source code
-$github_repo_url = 'https://github.com/success2202/success.git';
+$github_repo_url = 'https://github.com/success2202/success/blob/main/api.php';
 
 // Associative array to hold the data
 $response_data = [
