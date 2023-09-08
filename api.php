@@ -1,28 +1,31 @@
 <?php
 // Get the Slack name and track from GET parameters
-$slack_name = isset($_GET['stack_name']) ? $_GET['stack_name'] : '';
+$slack_name = isset($_GET['slack_name']) ? $_GET['slack_name'] : '';
 $track = isset($_GET['track']) ? $_GET['track'] : '';
 
+if(empty($slack_name)|| empty($track)){
+    echo "please insert the get parameters";
+}else{ 
 // Set the current day of the week
-$current_day_of_week = date('l');
+$current_day =  Date('l');
 
 // Set the current UTC time with validation of +/-2 minutes
-$current_time = date("Y-m-d H:i:s", time());
+$utc_time = Date('Y-m-d\TH:i:s\Z');
 
 // Set the GitHub URL of the file being run
-$source_file_url = 'https://github.com/success2202/success/blob/main/api.php';
+$github_file_url = 'https://github.com/success2202/success/blob/main/api.php';
 
 // Get the GitHub URL of the full source code
-$source_repo_url = 'https://github.com/success2202/success.git';
+$github_repo_url = 'https://github.com/success2202/success.git';
 
 // Associative array to hold the data
 $response_data = [
     'slack_name' => $slack_name,
-    'Current_Day' => $current_day_of_week,
-    'utc_time' => $current_time,
+    'current_day' => $current_day,
+    'utc_time' => $utc_time,
     'track' => $track,
-    'githubfile_url' => $source_file_url,
-    'githubRepo_url' => $source_repo_url,
+    'github_file_url' => $github_file_url,
+    'github_repo_url' => $github_repo_url,
     'status_code' => 200
 ];
 
@@ -30,10 +33,10 @@ $response_data = [
 $encoded_data = json_encode($response_data, JSON_PRETTY_PRINT);
 
 // Set the response headers to indicate JSON content
-//header('Content-Type: application/json');
-header("content-Type: JSON");
+header('Content-Type: application/json');
+
 
 // Output the JSON data
 echo $encoded_data;
-
+}
 ?>
